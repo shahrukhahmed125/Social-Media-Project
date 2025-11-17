@@ -12,13 +12,13 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route index path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         {/* Main Layout */}
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Feed />} />       {/* default page */}
-          <Route path="dashboard" element={<Feed />} />
+        <Route path="/dashboard" element={<MainLayout />}>
+          {/* <Route index element={<Feed />} />       default page */}
+          <Route path="feed" element={<Feed />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="chat" element={<Chat />} />
         </Route>

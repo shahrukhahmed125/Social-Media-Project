@@ -4,7 +4,7 @@ import Logo from "../assets/img/logo.svg";
 import Google  from "../assets/img/icons/google-logo.svg";
 import Apple  from "../assets/img/icons/apple-logo.svg";
 import {Link} from "react-router-dom";
-import PageTitle from '../components/PageTitle';
+import PageTitle from '../components/layouts/PageTitle';
 
 const Register = () => {
   return (
@@ -78,7 +78,7 @@ const Register = () => {
                                             <button type="submit" className="btn btn-primary w-100">Sign Up</button>
                                         </div>
                                         <div className="mb-3">
-                                            <p className="mb-0">Already have an account? <Link to="/login" className="link-indigo fw-bold link-hover"> Sign In Instead</Link></p>
+                                            <p className="mb-0">Already have an account? <Link to="/" className="link-indigo fw-bold link-hover"> Sign In Instead</Link></p>
                                         </div>
                                         <div className="or-login text-center position-relative mb-3">
                                             <h6 className="fs-14 mb-0 position-relative text-body">OR</h6>

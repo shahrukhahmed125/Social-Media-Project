@@ -1,6 +1,6 @@
 import {Outlet} from 'react-router-dom';
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../components/layouts/Navbar";
+import Sidebar from "../components/layouts/Sidebar";
 // import Footer from "../components/Footer";
 
 import "../assets/css/bootstrap.min.css";
