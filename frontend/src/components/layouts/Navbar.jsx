@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Avatar from "../../assets/img/users/user-40.jpg";
 
 const Navbar = () => {
     useEffect(() => {
@@ -18,7 +19,7 @@ const Navbar = () => {
                 <div className="page-container topbar-menu">
                     <div className="d-flex align-items-center gap-2">
                         {/* Logo */}
-                        <Link to="/dashboard/feed" className="logo">
+                        <Link to="feed" className="logo">
                             {/* Logo Normal */}
                             <span className="logo-light">
                                 <span className="logo-lg">
@@ -92,12 +93,11 @@ const Navbar = () => {
                         {/* Minimize */}
                         <div className="header-item">
                             <div className="dropdown me-2">
-                                <a
-                                    href="javascript:void(0);"
+                                <button
                                     className="btn topbar-link btnFullscreen"
                                 >
                                     <i className="ti ti-maximize"></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                         {/* Minimize */}
@@ -113,130 +113,17 @@ const Navbar = () => {
                             </button>
                         </div>
 
-                        {/* pages */}
-                        <div className="header-item d-none d-sm-flex">
-                            <div className="dropdown me-2">
-                                <a
-                                    href="javascript:void(0);"
-                                    id="pagesDropdown"
-                                    className="btn topbar-link topbar-teal-link dropdown-toggle"
-                                    data-bs-toggle="dropdown"
-                                    data-bs-auto-close="outside"
-                                    role="button"
-                                >
-                                    <i className="ti ti-layout-grid-add"></i>
-                                </a>
-                                <div className="dropdown-menu dropdown-menu-end dropdown-menu-md p-2">
-                                    {/* Item*/}
-                                    <a
-                                        href="contacts.html"
-                                        className="dropdown-item"
-                                    >
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <div>
-                                                <span className="d-flex mb-1 fw-semibold text-dark">
-                                                    Contacts
-                                                </span>
-                                                <span className="fs-13">
-                                                    View All the Contacts
-                                                </span>
-                                            </div>
-                                            <i className="ti ti-chevron-right-pipe text-dark"></i>
-                                        </div>
-                                    </a>
-
-                                    {/* Item*/}
-                                    <a
-                                        href="pipeline.html"
-                                        className="dropdown-item"
-                                    >
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <div>
-                                                <span className="d-flex mb-1 fw-semibold text-dark">
-                                                    Pipeline
-                                                </span>
-                                                <span className="fs-13">
-                                                    View All the Pipeline
-                                                </span>
-                                            </div>
-                                            <i className="ti ti-chevron-right-pipe text-dark"></i>
-                                        </div>
-                                    </a>
-
-                                    {/* Item*/}
-                                    <a
-                                        href="activities.html"
-                                        className="dropdown-item"
-                                    >
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <div>
-                                                <span className="d-flex mb-1 fw-semibold text-dark">
-                                                    Activities
-                                                </span>
-                                                <span className="fs-13">
-                                                    Activities
-                                                </span>
-                                            </div>
-                                            <i className="ti ti-chevron-right-pipe text-dark"></i>
-                                        </div>
-                                    </a>
-
-                                    {/* Item*/}
-                                    <a
-                                        href="analytics.html"
-                                        className="dropdown-item"
-                                    >
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <div>
-                                                <span className="d-flex mb-1 fw-semibold text-dark">
-                                                    Analytics
-                                                </span>
-                                                <span className="fs-13">
-                                                    Analytics
-                                                </span>
-                                            </div>
-                                            <i className="ti ti-chevron-right-pipe text-dark"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* faq */}
-                        <div className="header-item d-none d-sm-flex">
-                            <div className="dropdown me-2">
-                                <a
-                                    href="faq.html"
-                                    className="btn topbar-link topbar-indigo-link"
-                                >
-                                    <i className="ti ti-help-hexagon"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* report */}
-                        <div className="header-item d-none d-sm-flex">
-                            <div className="dropdown me-2">
-                                <a
-                                    href="lead-reports.html"
-                                    className="btn topbar-link topbar-warning-link"
-                                >
-                                    <i className="ti ti-chart-pie"></i>
-                                </a>
-                            </div>
-                        </div>
-
                         <div className="header-line"></div>
 
                         {/* message */}
                         <div className="header-item">
                             <div className="dropdown me-2">
-                                <a href="chat.html" className="btn topbar-link">
+                                <Link to="chat" className="btn topbar-link">
                                     <i className="ti ti-message-circle-exclamation"></i>
                                     <span className="badge rounded-pill">
                                         14
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -507,7 +394,7 @@ const Navbar = () => {
                                 aria-expanded="false"
                             >
                                 <img
-                                    src="assets/img/users/user-40.jpg"
+                                    src={Avatar}
                                     width="38"
                                     className="rounded-1 d-flex"
                                     alt="user-image"
@@ -519,7 +406,7 @@ const Navbar = () => {
                             <div className="dropdown-menu dropdown-menu-end dropdown-menu-md p-2">
                                 <div className="d-flex align-items-center bg-light rounded-3 p-2 mb-2">
                                     <img
-                                        src="assets/img/users/user-40.jpg"
+                                        src={Avatar}
                                         className="rounded-circle"
                                         width="42"
                                         height="42"

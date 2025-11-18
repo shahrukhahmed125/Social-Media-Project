@@ -1,6 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {Link, NavLink} from "react-router-dom";
+import Logo from "../../assets/img/logo.svg";
+import LogoSmall from "../../assets/img/logo-small.svg";
+import LogoWhite from "../../assets/img/logo-white.svg";
 
 const Sidebar = () => {
+	  const [openMenu, setOpenMenu] = useState(null); // tracks which submenu is open
+
+  const toggleMenu = (menu) => {
+    if (openMenu === menu) {
+      setOpenMenu(null); // close if already open
+    } else {
+      setOpenMenu(menu); // open selected submenu
+    }
+  };
   return (
     <>
         <div className="sidebar" id="sidebar">
@@ -9,19 +22,19 @@ const Sidebar = () => {
             <div className="sidebar-logo">
                 <div>
                      {/* Logo Normal */}
-                    <a href="index.html" className="logo logo-normal">
-                        <img src="assets/img/logo.svg" alt="Logo"/>
-                    </a>
+                    <Link to="feed" className="logo logo-normal">
+                        <img src={Logo} alt="Logo"/>
+                    </Link>
 
                      {/* Logo Small */}
-                    <a href="index.html" className="logo-small">
-                        <img src="assets/img/logo-small.svg" alt="Logo"/>
-                    </a>
+                    <Link to="feed" className="logo-small">
+                        <img src={LogoSmall} alt="Logo"/>
+                    </Link>
 
                      {/* Logo Dark */}
-                    <a href="index.html" className="dark-logo">
-                        <img src="assets/img/logo-white.svg" alt="Logo"/>
-                    </a>
+                    <Link to="feed" className="dark-logo">
+                        <img src={LogoWhite} alt="Logo"/>
+                    </Link>
                 </div>
                 <button className="sidenav-toggle-btn btn border-0 p-0 active" id="toggle_btn"> 
                     <i className="ti ti-arrow-bar-to-left"></i>
@@ -42,14 +55,34 @@ const Sidebar = () => {
 						<li>
 							<ul>
 								<li className="submenu">
-									<a href="javascript:void(0);" className="active subdrop">
-										<i className="ti ti-dashboard"></i><span>Dashboard</span><span className="menu-arrow"></span>
+									<a
+									href="#!"
+									onClick={() => toggleMenu("dashboard")}
+									className={openMenu === "dashboard" ? "active subdrop" : ""}
+									>
+									<i className="ti ti-dashboard"></i>
+									<span>Dashboard</span>
+									<span className="menu-arrow"></span>
 									</a>
+									{openMenu === "dashboard" && (
 									<ul>
-										<li><a href="index.html" className="active">Deals Dashboard</a></li>
-										<li><a href="leads-dashboard.html">Leads Dashboard</a></li>
-										<li><a href="project-dashboard.html">Project Dashboard</a></li>
+										<li>
+										<NavLink to="/dashboard/deals" className={({ isActive }) => isActive ? "active" : ""}>
+											Deals Dashboard
+										</NavLink>
+										</li>
+										<li>
+										<NavLink to="/dashboard/leads" className={({ isActive }) => isActive ? "active" : ""}>
+											Leads Dashboard
+										</NavLink>
+										</li>
+										<li>
+										<NavLink to="/dashboard/project" className={({ isActive }) => isActive ? "active" : ""}>
+											Project Dashboard
+										</NavLink>
+										</li>
 									</ul>
+									)}
 								</li>
 								<li className="submenu">
 									<a href="javascript:void(0);"><i className="ti ti-brand-airtable"></i><span>Applications</span><span className="menu-arrow"></span></a>
