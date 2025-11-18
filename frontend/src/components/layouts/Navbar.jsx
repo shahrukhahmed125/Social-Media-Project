@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     useEffect(() => {
@@ -17,7 +18,7 @@ const Navbar = () => {
                 <div className="page-container topbar-menu">
                     <div className="d-flex align-items-center gap-2">
                         {/* Logo */}
-                        <a href="index.html" className="logo">
+                        <Link to="/dashboard/feed" className="logo">
                             {/* Logo Normal */}
                             <span className="logo-light">
                                 <span className="logo-lg">
@@ -40,7 +41,7 @@ const Navbar = () => {
                                     />
                                 </span>
                             </span>
-                        </a>
+                        </Link>
 
                         {/* Sidebar Mobile Button */}
                         <a

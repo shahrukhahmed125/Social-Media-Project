@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Feed from "./pages/Feed";
@@ -17,7 +17,7 @@ function App() {
 
         {/* Main Layout */}
         <Route path="/dashboard" element={<MainLayout />}>
-          {/* <Route index element={<Feed />} />       default page */}
+          <Route index element={<Navigate to="feed" replace />} />
           <Route path="feed" element={<Feed />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="chat" element={<Chat />} />
