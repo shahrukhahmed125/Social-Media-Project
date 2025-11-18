@@ -1,17 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "../../assets/img/users/user-40.jpg";
 
 const Navbar = () => {
     useEffect(() => {
-        // Initialize Bootstrap dropdowns
-        const dropdownTriggerList = [].slice.call(
-            document.querySelectorAll('[data-bs-toggle="dropdown"]')
-        );
-        dropdownTriggerList.map((dropdownTriggerEl) => {
-            return new window.bootstrap.Dropdown(dropdownTriggerEl);
-        });
+        // call your theme script function if needed
+        if (window.initTheme) {
+            window.initTheme();
+        }
     }, []);
+
+    const [fullscreen, setFullscreen] = useState(false);
+
+    // Toggle fullscreen mode
+    const toggleFullscreen = () => {
+        if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        setFullscreen(true);
+        } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+        setFullscreen(false);
+        }
+    };
+
+
 
     return (
         <>
@@ -94,7 +106,7 @@ const Navbar = () => {
                         <div className="header-item">
                             <div className="dropdown me-2">
                                 <button
-                                    className="btn topbar-link btnFullscreen"
+                                    className="btn topbar-link btnFullscreen" onClick={toggleFullscreen}
                                 >
                                     <i className="ti ti-maximize"></i>
                                 </button>
